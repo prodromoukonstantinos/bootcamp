@@ -7,6 +7,7 @@ package javaapplication19;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import static javax.swing.UIManager.getString;
 
 /**
  *
@@ -21,18 +22,40 @@ public class Simple_Java_Application2 {
         Scanner in = new Scanner(System.in);
         Person person = new Person();
         System.out.println("Enter your first Name:");
-        person.setFirtsName(in.next());
+        person.setString(1, in.next());
         System.out.println("Enter your last Name:");
-        person.setLastName(in.next());
+        person.setString(2, in.next());
         System.out.println("Enter your Fathers Name:");
-        person.setFathersName(in.next());
+        person.setString(3, in.next());
         System.out.print("Enter Date of Birth (DD/MM/YYYY): ");
-        person.setDoB(in.next());
-       for(int i=1; i<4; i++){
-       person.writeString(i, person);
-       }
-        
+        person.setString(4, in.next());
+       
+       WriteReadFile write = new WriteReadFile(person);
+       for( int i=1; i<4; i++){
+           switch (i){
+           
+               
+               case 1 : 
+                   String s = "Line " + i +":"+person.getString(i)+", "+person.getString(i+1)+", "+person.getString(i+2);
+                write.writeString(i,s);
+                break;
+           
+           
+               case 2:
+                
+                String p = "Line " + i +":"+ person.getString(i+2);
+                write.writeString(i,p);
+                break;
+           
+               case 3:
+                String k = "Line " + i +":"+(2017-Integer.parseInt(person.getString(i+1).substring(6,10)));
+                write.writeString(i,k);
+                break;
+           
+           }
+           
+      
         
     }
     
-}
+}}

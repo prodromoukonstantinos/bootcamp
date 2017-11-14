@@ -19,58 +19,62 @@ public class Person {
     private String FathersName;
     private String DoB;
 
-    
-
-    public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(String LastName) {
-        this.LastName = LastName;
-    }
-
-    public String getFirtsName() {
-        return FirtsName;
-    }
-
-    public void setFirtsName(String FirtsName) {
-        this.FirtsName = FirtsName;
-    }
-
-    public String getFathersName() {
-        return FathersName;
-    }
-
-    public void setFathersName(String FathersName) {
-        this.FathersName = FathersName;
-    }
-
-    public String getDoB() {
-        return DoB;
-    }
-
-    public void setDoB(String DoB) {
-        this.DoB = DoB;
-    }
-    
-    
-    public  void writeString(int x, Person p) throws FileNotFoundException{
+   
+    public void setString(int x, String S) {
+       
+      
         
-       PrintWriter writer = new PrintWriter(p.getLastName()+"."+p.getFirtsName()+".txt");
-        for(x=1; x<4; x++){
+       switch(x){
+               case 1   :
+                   this.LastName = S;
+                   break;
+                   
+                case 2  :
+                   this.FirtsName = S;
+                   break;
+                   
+                   case 3   :
+                   this.FathersName = S;
+                   break;
+                   
+                   case 4   :
+                   this.DoB = S;
+                   break;
+       
+       }
+    }
         
-        if(x==1){String S1 = ("Line " + x +":"+p.getLastName()+", "+p.getFirtsName()+", "+p.getFathersName());
-        writer.println(S1);}
-        if(x==2){String S2 = ("Line " + x +":"+DoB);
-        writer.println(S2);}
-         if(x==3){String S3 = ("Line " + x +":"+(2017-Integer.parseInt(p.getDoB().substring(6,10))));
-        writer.println(S3);}
+    
+
+    public String getString(int x) {
+        
+         String temp = "";
+          switch(x){
+               case 1   :
+                     temp = this.LastName;
+                     break;
+                
+                   
+                   
+                case 2   :
+                    temp = this.FirtsName;
+                    break;
+                   
+                   case 3   :
+                   temp =  this.FathersName;
+                   break;
+                   
+                   case 4   :
+                   temp = this.DoB;
+                   break;
+       
+       }
+       
+        return temp;
+    }
+   
             
-        }
         
-            
-         
-    
-    writer.close();
+        
     }
-}
+
